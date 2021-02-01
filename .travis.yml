@@ -14,7 +14,7 @@ install:
 #  - sleep 3 # give xvfb some time to start
 
 script: 
-  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+  - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
 #  - qmake -qt=qt5
 #  - make
 #  - make qmake_all
