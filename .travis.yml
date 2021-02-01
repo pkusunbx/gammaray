@@ -14,7 +14,8 @@ install:
 #  - sleep 3 # give xvfb some time to start
 
 script: 
-  - qmake
+  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
 #  - qmake -qt=qt5
 #  - make
+#  - make qmake_all
 #  - ./travis_qmake_gcc_cpp11_qt5
