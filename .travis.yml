@@ -20,3 +20,4 @@ script:
 #  - make qmake_all
 #  - ./travis_qmake_gcc_cpp11_qt5
   - ls -al
+  - tree ../GammaRay_release/dist
