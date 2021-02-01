@@ -8,6 +8,8 @@ install:
   # Qt5
   - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+  # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
+  - sudo apt-get install libboost-all-dev
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 #before_script:
@@ -15,11 +17,17 @@ install:
 #  - "sh -e /etc/init.d/xvfb start"
 #  - sleep 3 # give xvfb some time to start
 
+env:
+  - BOOST_INCLUDE=/usr/include/boost
+
 script: 
+  #Build the calculator script engine library.
   - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
-#  - qmake -qt=qt5
   - make
-#  - make qmake_all
-#  - ./travis_qmake_gcc_cpp11_qt5
+  #Build the program itself.
+  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+  #- make
+  #Check directory listings
   - ls -al
   - tree ../GammaRay_release
+  - ls /usr/boost/include
