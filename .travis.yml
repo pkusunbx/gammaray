@@ -19,11 +19,11 @@ install:
   - sudo apt-get install libgsl-dev
   # the Insight Toolkit libraries with advanced algorithms for image processing. 
   #- sudo apt-get install cmake insighttoolkit3-examples libfftw3-dev libinsighttoolkit3-dev libinsighttoolkit3.6 python-insighttoolkit3 tcl8.4 tcl8.4-insighttoolkit3 tk8.4
-  - sudo apt-get install libinsighttoolkit4-dev libinsighttoolkit4.13
+  - sudo apt-get install libinsighttoolkit4-dev
   # The Qt Widgets for Technical apllications libraries.
   - sudo apt-get install -qq libqwt-dev
   # The Visualization Toolkit.
-  - sudp apt-get install libvtk8-dev
+  - sudo apt-get install libvtk8-dev
 
 
 
@@ -33,11 +33,11 @@ install:
 #  - "sh -e /etc/init.d/xvfb start"
 #  - sleep 3 # give xvfb some time to start
 
-env:
+#env:
   #- BOOST_INCLUDE=/usr/include/boost
-  - BOOST_INCLUDE=/usr/include
-  - ITK_INCLUDE=/usr/include/InsightToolkit
-  - ITK_LIB=/usr/lib/InsightToolkit
+  #- BOOST_INCLUDE=/usr/include
+  #- ITK_INCLUDE=/usr/include/InsightToolkit
+  #- ITK_LIB=/usr/lib/InsightToolkit
 
 script: 
   #Build the calculator script engine library.
