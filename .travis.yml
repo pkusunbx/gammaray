@@ -4,12 +4,12 @@ dist: bionic
 
 install:
   # make sure all package listings are up-to-date
-  #- sudo apt-get update -y
+  - sudo apt-get update -y
   # the tree command
-  #- sudo apt-get install tree
+  - sudo apt-get install tree
   # Qt5
-  #- sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
-  #- export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
   #- sudo apt-get install libboost-all-dev
   # the Fastest Fourier Transform in the West (v3) library (devel package)
@@ -23,7 +23,16 @@ install:
   # The Qt Widgets for Technical apllications libraries.
   #- sudo apt-get install -qq libqwt-dev
   # The Visualization Toolkit.
-  - git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK_src
+  #- sudo apt-get install cmake
+  #- git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK-src
+  #- mkdir VTK-build
+  #- cd VTK-build
+  #- cmake -DVTK_QT_VERSION:STRING=5 \
+  #        -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake \
+  #        -DVTK_Group_Qt:BOOL=ON \
+  #        -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/qt5/lib/cmake  \
+  #        -DBUILD_SHARED_LIBS:BOOL=ON
+  #        ../VTK-src 
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 #before_script:
@@ -50,4 +59,5 @@ script:
   #- ls /usr/lib
   #- ls /usr/lib64
   #- tree ../GammaRay_release
-  -ls VTK_src
+  - tree /usr/lib/x86_64-linux-gnu/qt5
+  #- ls VTK-src
