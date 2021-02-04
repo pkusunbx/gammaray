@@ -30,4 +30,4 @@ script:
   #Check directory listings
 #  - ls -al
 #  - tree ../GammaRay_release
-  - ls /usr/boost/include
+  - ls /usr/include/boost
