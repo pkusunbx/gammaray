@@ -30,7 +30,7 @@ install:
   #- cmake -DVTK_QT_VERSION:STRING=5 \
   #        -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake \
   #        -DVTK_Group_Qt:BOOL=ON \
-  #        -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/qt5/lib/cmake  \
+  #        -DCMAKE_PREFIX_PATH:PATH=****INCORRECT*****/usr/lib/x86_64-linux-gnu/qt5/lib/cmake  \
   #        -DBUILD_SHARED_LIBS:BOOL=ON
   #        ../VTK-src 
 
@@ -56,8 +56,8 @@ script:
   #Check directory listings
   #- ls -al
   #- ls /usr/include
-  #- ls /usr/lib
-  #- ls /usr/lib64
+  - ls /usr/lib
+  - ls /usr/lib64
   #- tree ../GammaRay_release
-  - tree /usr/lib/x86_64-linux-gnu/qt5
+  #- tree /usr/lib/x86_64-linux-gnu/qt5
   #- ls VTK-src
