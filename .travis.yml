@@ -23,7 +23,7 @@ install:
   # The Qt Widgets for Technical apllications libraries.
   #- sudo apt-get install -qq libqwt-dev
   # The Visualization Toolkit.
-  -git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK_src
+  - git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK_src
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 #before_script:
