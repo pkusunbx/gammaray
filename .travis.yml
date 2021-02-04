@@ -6,8 +6,8 @@ install:
   # the tree command
   - sudo apt-get install tree
   # Qt5
-  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
-  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+#  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+#  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
   - sudo apt-get install libboost-all-dev
 
@@ -17,17 +17,17 @@ install:
 #  - "sh -e /etc/init.d/xvfb start"
 #  - sleep 3 # give xvfb some time to start
 
-env:
-  - BOOST_INCLUDE=/usr/include/boost
+#env:
+#  - BOOST_INCLUDE=/usr/include/boost
 
 script: 
   #Build the calculator script engine library.
-  - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
-  - make
+#  - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+#  - make
   #Build the program itself.
-  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+#  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   #- make
   #Check directory listings
-  - ls -al
-  - tree ../GammaRay_release
+#  - ls -al
+#  - tree ../GammaRay_release
   - ls /usr/boost/include
