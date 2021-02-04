@@ -3,13 +3,29 @@ compiler: gcc
 dist: bionic
 
 install:
+  # make sure all package listings are up-to-date
+  - sudo apt-get update -y
   # the tree command
   - sudo apt-get install tree
   # Qt5
-#  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
-#  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
   - sudo apt-get install libboost-all-dev
+  # the Fastest Fourier Transform in the West (v3) library (devel package)
+  #- sudo apt-get install -y fftw3-dev
+  - sudo apt-get install -y libfftw3-dev
+  # the GNU Scientific Libray
+  - sudo apt-get install libgsl-dev
+  # the Insight Toolkit libraries with advanced algorithms for image processing. 
+  #- sudo apt-get install cmake insighttoolkit3-examples libfftw3-dev libinsighttoolkit3-dev libinsighttoolkit3.6 python-insighttoolkit3 tcl8.4 tcl8.4-insighttoolkit3 tk8.4
+  - sudo apt-get install libinsighttoolkit4-dev libinsighttoolkit4.13
+  # The Qt Widgets for Technical apllications libraries.
+  - sudo apt-get install -qq libqwt-dev
+  # The Visualization Toolkit.
+  - sudp apt-get install libvtk8-dev
+
+
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 #before_script:
@@ -17,17 +33,22 @@ install:
 #  - "sh -e /etc/init.d/xvfb start"
 #  - sleep 3 # give xvfb some time to start
 
-#env:
-#  - BOOST_INCLUDE=/usr/include/boost
+env:
+  #- BOOST_INCLUDE=/usr/include/boost
+  - BOOST_INCLUDE=/usr/include
+  - ITK_INCLUDE=/usr/include/InsightToolkit
+  - ITK_LIB=/usr/lib/InsightToolkit
 
 script: 
   #Build the calculator script engine library.
-#  - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
-#  - make
+  - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+  - make
   #Build the program itself.
-#  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   #- make
   #Check directory listings
-#  - ls -al
-#  - tree ../GammaRay_release
-  - ls /usr/include/boost
+  - ls -al
+  - ls /usr/include
+  - ls /usr/lib
+  - ls /usr/lib64
+  - tree ../GammaRay_release
