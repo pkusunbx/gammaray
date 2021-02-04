@@ -56,8 +56,7 @@ script:
   #Check directory listings
   #- ls -al
   #- ls /usr/include
-  - ls /usr/lib
-  - ls /usr/lib64
+  - tree /usr/lib/qt5
   #- tree ../GammaRay_release
   #- tree /usr/lib/x86_64-linux-gnu/qt5
   #- ls VTK-src
