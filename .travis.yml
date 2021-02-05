@@ -24,7 +24,7 @@ install:
   #- sudo apt-get install libinsighttoolkit4-dev
   # The Qt Widgets for Technical apllications libraries.
   #- sudo apt-get install -qq libqwt-dev
-  # The Visualization Toolkit.
+  # The Visualization Toolkit: must build from sources (currently not installable with apt-get).
   - sudo apt-get install cmake
   - git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK-src
   - mkdir VTK-build
@@ -35,6 +35,7 @@ install:
           -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/cmake \
           -DBUILD_SHARED_LIBS:BOOL=ON
           ../VTK-src 
+  - make -j10
   #        -DCMAKE_PREFIX_PATH:PATH=****INCORRECT*****/usr/lib/x86_64-linux-gnu/qt5/lib/cmake  \
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
