@@ -15,23 +15,23 @@ install:
   # the tree command
   - sudo apt-get install tree
   # Qt5
-  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5x11extras5-dev
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # this installs the CMake files that are helpful to build software with CMake and depending on Qt.
   - sudo apt-get install qtbase5-dev
   # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
-  - sudo apt-get install libboost-all-dev
+  #- sudo apt-get install libboost-all-dev
   # the Fastest Fourier Transform in the West (v3) library (devel package)
   #- sudo apt-get install -y fftw3-dev
-  - sudo apt-get install -y libfftw3-dev
+  #- sudo apt-get install -y libfftw3-dev
   # the GNU Scientific Libray
-  - sudo apt-get install libgsl-dev
+  #- sudo apt-get install libgsl-dev
   # the Insight Toolkit libraries with advanced algorithms for image processing. 
   #- sudo apt-get install cmake insighttoolkit3-examples libfftw3-dev libinsighttoolkit3-dev libinsighttoolkit3.6 python-insighttoolkit3 tcl8.4 tcl8.4-insighttoolkit3 tk8.4
-  - sudo apt-get install libinsighttoolkit4-dev
+  #- sudo apt-get install libinsighttoolkit4-dev
   # The Qt Widgets for Technical apllications libraries.
   # Qwt depends on Qt
-  - sudo apt-get install -qq libqwt-dev
+  #- sudo apt-get install -qq libqwt-dev
   # The Visualization Toolkit: must build from sources (currently not installable with apt-get).
   # VTK depends on Qt
   - sudo apt-get install cmake
@@ -81,19 +81,19 @@ script:
   #- tree /usr/lib/x86_64-linux-gnu/cmake
   #- ls VTK-src
   #Locate where the dependency headers are
-  - locate geometry.hpp
-  - locate fftw3.h
-  - locate gsl_sort.h
-  - locate itkGaborImageSource.h
-  - locate qwt_slider.h
-  - locate vtkLookupTable.h
+  #- locate geometry.hpp
+  #- locate fftw3.h
+  #- locate gsl_sort.h
+  #- locate itkGaborImageSource.h
+  #- locate qwt_slider.h
+  #- locate vtkLookupTable.h
   #Locate where the dependency libraries are
-  - locate libfftw3*
-  - locate libgsl*
-  - locate libitk*
-  - locate libqwt*
-  - locate qwt.so
-  - locate libvtk*
+  #- locate libfftw3*
+  #- locate libgsl*
+  #- locate libitk*
+  #- locate libqwt*
+  #- locate qwt.so
+  #- locate libvtk*
   #Build the calculator script engine library.
   #- qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   #- make
