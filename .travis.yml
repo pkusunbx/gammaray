@@ -46,7 +46,8 @@ install:
           -DBUILD_TESTING:BOOL=OFF
           -DBUILD_EXAMPLES:BOOL=OFF
           ../VTK-src 
-  - make -j$(($(nproc) - 1))
+  #- make -j$(($(nproc) - 1))
+  - make -j10
   - make install
   - cd ..
 
@@ -69,7 +70,7 @@ install:
 #    QWT_LIB= \
 #    VTK_INCLUDE= \
 #    VTK_LIB= \
-#    VTK_VERSION_SUFFIX=
+#    VTK_VERSION_SUFFIX=-8.1
 
 script: 
   #Check directory listings
