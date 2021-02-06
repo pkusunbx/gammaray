@@ -38,12 +38,12 @@ install:
   - git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK-src
   - mkdir VTK-build
   - cd VTK-build
-  - cmake -DVTK_QT_VERSION:STRING=5 \
-          -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake \
-          -DVTK_Group_Qt:BOOL=ON \
-          -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/cmake \
-          -DBUILD_SHARED_LIBS:BOOL=ON \
-          -DBUILD_TESTING:BOOL=OFF \
+  - cmake -DVTK_QT_VERSION:STRING=5
+          -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+          -DVTK_Group_Qt:BOOL=ON
+          -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/cmake
+          -DBUILD_SHARED_LIBS:BOOL=ON
+          -DBUILD_TESTING:BOOL=OFF
           -DBUILD_EXAMPLES:BOOL=OFF
           ../VTK-src 
   - make -j$(($(nproc) - 1))
