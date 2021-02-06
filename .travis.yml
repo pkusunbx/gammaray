@@ -43,8 +43,8 @@ install:
           -DVTK_Group_Qt:BOOL=ON \
           -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/cmake \
           -DBUILD_SHARED_LIBS:BOOL=ON \
-          -DBUILD_TESTING=OFF \
-          -DBUILD_EXAMPLES=OFF
+          -DBUILD_TESTING:BOOL=OFF \
+          -DBUILD_EXAMPLES:BOOL=OFF
           ../VTK-src 
   - make -j$(($(nproc) - 1))
   - make install
