@@ -20,18 +20,18 @@ install:
   # this installs the CMake files that are helpful to build software with CMake and depending on Qt.
   - sudo apt-get install qtbase5-dev
   # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
-  #- sudo apt-get install libboost-all-dev
+  - sudo apt-get install libboost-all-dev
   # the Fastest Fourier Transform in the West (v3) library (devel package)
   #- sudo apt-get install -y fftw3-dev
-  #- sudo apt-get install -y libfftw3-dev
+  - sudo apt-get install -y libfftw3-dev
   # the GNU Scientific Libray
-  #- sudo apt-get install libgsl-dev
+  - sudo apt-get install libgsl-dev
   # the Insight Toolkit libraries with advanced algorithms for image processing. 
   #- sudo apt-get install cmake insighttoolkit3-examples libfftw3-dev libinsighttoolkit3-dev libinsighttoolkit3.6 python-insighttoolkit3 tcl8.4 tcl8.4-insighttoolkit3 tk8.4
-  #- sudo apt-get install libinsighttoolkit4-dev
+  - sudo apt-get install libinsighttoolkit4-dev
   # The Qt Widgets for Technical apllications libraries.
   # Qwt depends on Qt
-  #- sudo apt-get install -qq libqwt-dev
+  - sudo apt-get install -qq libqwt-dev
   # The Visualization Toolkit: must build from sources (currently not installable with apt-get).
   # VTK depends on Qt
   - sudo apt-get install cmake
@@ -60,18 +60,18 @@ install:
 #  - sleep 3 # give xvfb some time to start
 
 #env:
-#  - BOOST_INCLUDE=/usr/include \
-#    FFTW3_INCLUDE= \
-#    FFTW3_LIB= \
-#    GSL_INCLUDE= \
-#    GSL_LIB= \
-#    ITK_INCLUDE=/usr/include/InsightToolkit \
-#    ITK_LIB=/usr/lib/InsightToolkit \
-#    ITK_VERSION_SUFFIX=-4.13 \
-#    QWT_INCLUDE= \
-#    QWT_LIB= \
-#    VTK_INCLUDE= \
-#    VTK_LIB= \
+#  - BOOST_INCLUDE=/usr/include
+#    FFTW3_INCLUDE=
+#    FFTW3_LIB=
+#    GSL_INCLUDE=
+#    GSL_LIB=
+#    ITK_INCLUDE=/usr/include/InsightToolkit
+#    ITK_LIB=/usr/lib/InsightToolkit
+#    ITK_VERSION_SUFFIX=-4.13
+#    QWT_INCLUDE=
+#    QWT_LIB=
+#    VTK_INCLUDE=
+#    VTK_LIB=
 #    VTK_VERSION_SUFFIX=-8.1
 
 script: 
