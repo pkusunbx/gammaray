@@ -49,7 +49,7 @@ install:
           -DCMAKE_INSTALL_PREFIX=../VTK-install
           ../VTK-src 
   #- make -j$(($(nproc) - 1))  --> this doesn't work on Travis CI. It was supposed to get the number of cores
-  - make -j32
+  - make -j16
   - make install
   - cd ..
 
@@ -84,19 +84,19 @@ script:
   #- tree /usr/lib/x86_64-linux-gnu/cmake
   #- ls VTK-src
   #Locate where the dependency headers are
-  #- locate geometry.hpp
-  #- locate fftw3.h
-  #- locate gsl_sort.h
-  #- locate itkGaborImageSource.h
-  #- locate qwt_slider.h
-  #- locate vtkLookupTable.h
+  - locate geometry.hpp
+  - locate fftw3.h
+  - locate gsl_sort.h
+  - locate itkGaborImageSource.h
+  - locate qwt_slider.h
+  - locate vtkLookupTable.h
   #Locate where the dependency libraries are
-  #- locate libfftw3*
-  #- locate libgsl*
-  #- locate libitk*
-  #- locate libqwt*
-  #- locate qwt.so
-  #- locate libvtk*
+  - locate libfftw3*
+  - locate libgsl*
+  - locate libitk*
+  - locate libqwt*
+  - locate qwt.so
+  - locate libvtk*
   #Build the calculator script engine library.
   #- qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   #- make
