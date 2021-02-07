@@ -14,6 +14,10 @@ install:
   - sudo apt-get update -y
   # the tree command
   - sudo apt-get install tree
+  # Installs the locate command and the mlocate file location database (this is not needed in the .travis.yml final version)
+  -sudo apt-get install mlocate 
+  # Indexes all the files in the mlocate database (this is not needed in the .travis.yml final version)
+  -sudo updatedb
   # Qt5
   #- sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5x11extras5-dev qttools5-dev
   #- export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
@@ -52,10 +56,6 @@ install:
   #- make -j16
   #- make install
   #- cd ..
-  # Installs the locate command and the mlocate file location database (this is not needed in the .travis.yml final version)
-  -sudo apt-get install mlocate 
-  # Indexes all the files in the mlocate database (this is not needed in the .travis.yml final version)
-  -sudo updatedb
 
 # Start virtual X server, from https://docs.travis-ci.com/user/gui-and-headless-browsers/
 #before_script:
