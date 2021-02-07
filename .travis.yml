@@ -48,7 +48,7 @@ install:
           -DBUILD_EXAMPLES:BOOL=OFF
           -DCMAKE_INSTALL_PREFIX=../VTK-install
           ../VTK-src 
-  - make -j$(($(nproc) - 1))  --> this doesn't work on Travis CI. It was supposed to get the number of cores
+  #- make -j$(($(nproc) - 1))  --> this doesn't work on Travis CI. It was supposed to get the number of cores
   - make -j16
   - make install
   - cd ..
