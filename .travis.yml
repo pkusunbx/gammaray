@@ -95,12 +95,12 @@ script:
   - locate qwt_slider.h
   - locate vtkLookupTable.h
   #Locate where the dependency libraries are
-  - locate libfftw3*
-  - locate libgsl*
-  - locate libitk*
-  - locate libqwt*
+  - locate libfftw3
+  - locate libgsl
+  - locate libitk
+  - locate libqwt
   - locate qwt.so
-  - locate libvtk*
+  - locate libvtk
   #Build the calculator script engine library.
   #- qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   #- make
