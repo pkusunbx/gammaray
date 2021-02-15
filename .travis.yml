@@ -107,7 +107,7 @@ script:
   - $QMAKE libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   - make
   #Build the program itself.
-  - $QMAKE GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler" "QMAKE_CFLAGS_ISYSTEM = -I"
+  - $QMAKE GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler" "QMAKE_CFLAGS_ISYSTEM=-I"
   - make
   #Show what was built.
   #- tree ../GammaRay_release
