@@ -102,10 +102,10 @@ script:
   - locate qwt.so
   - locate libvtk
   #Build the calculator script engine library.
-  - qmake libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+  - $QMAKE libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   - make
   #Build the program itself.
-  - qmake GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
+  - $QMAKE GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   - make
   #Show what was built.
   - tree ../GammaRay_release
