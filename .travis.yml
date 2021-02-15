@@ -19,6 +19,8 @@ install:
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # this installs the CMake files that are helpful to build software with CMake and depending on Qt.
   - sudo apt-get install qtbase5-dev
+  # this installs Qt Charts, which is required by GammaRay
+  - sudo apt-get install libqt5charts5 libqt5charts5-dev
   # latest Boost library (devel package, that is: with the headers and linktime libraries in addition to the runtime libraries)
   - sudo apt-get install libboost-all-dev
   # the Fastest Fourier Transform in the West (v3) library (devel package)
