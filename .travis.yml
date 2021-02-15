@@ -36,24 +36,24 @@ install:
   - sudo apt-get install -qq libqwt-dev
   # The Visualization Toolkit: must build from sources (currently not installable with apt-get).
   # VTK depends on Qt
-  #- sudo apt-get install cmake
-  #- git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK-src
-  #- mkdir VTK-build
-  #- mkdir VTK-install
-  #- cd VTK-build
-  #- cmake -DVTK_QT_VERSION:STRING=5
-  #        -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
-  #        -DVTK_Group_Qt:BOOL=ON
-  #        -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/cmake
-  #        -DBUILD_SHARED_LIBS:BOOL=ON
-  #        -DBUILD_TESTING:BOOL=OFF
-  #        -DBUILD_EXAMPLES:BOOL=OFF
-  #        -DCMAKE_INSTALL_PREFIX=../VTK-install
-  #        ../VTK-src 
+  - sudo apt-get install cmake
+  - git clone --depth 1 --branch v8.1.0 https://gitlab.kitware.com/vtk/vtk.git VTK-src
+  - mkdir VTK-build
+  - mkdir VTK-install
+  - cd VTK-build
+  - cmake -DVTK_QT_VERSION:STRING=5
+          -DQT_QMAKE_EXECUTABLE:PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+          -DVTK_Group_Qt:BOOL=ON
+          -DCMAKE_PREFIX_PATH:PATH=/usr/lib/x86_64-linux-gnu/cmake
+          -DBUILD_SHARED_LIBS:BOOL=ON
+          -DBUILD_TESTING:BOOL=OFF
+          -DBUILD_EXAMPLES:BOOL=OFF
+          -DCMAKE_INSTALL_PREFIX=../VTK-install
+          ../VTK-src 
   #- make -j$(($(nproc) - 1))  --> this doesn't work on Travis CI. It was supposed to get the number of cores
-  #- make -j16
-  #- make install
-  #- cd ..
+  - make -j16
+  - make install
+  - cd ..
   # Installs the locate command and the mlocate file location database (this is not needed in the .travis.yml final version)
   - sudo apt-get install mlocate 
   # Indexes all the files in the mlocate database (this is not needed in the .travis.yml final version)
@@ -90,24 +90,32 @@ script:
   #- tree /usr/lib/x86_64-linux-gnu/cmake
   #- ls VTK-src
   #Locate where the dependency headers are
-  #- locate geometry.hpp
-  #- locate fftw3.h
-  #- locate gsl_sort.h
-  #- locate itkGaborImageSource.h
-  #- locate qwt_slider.h
-  #- locate vtkLookupTable.h
+  - locate geometry.hpp
+  - locate fftw3.h
+  - locate gsl_sort.h
+  - locate itkGaborImageSource.h
+  - locate qwt_slider.h
+  - locate vtkLookupTable.h
   #Locate where the dependency libraries are
-  #- locate libfftw3
-  #- locate libgsl
-  #- locate libitk
-  #- locate libqwt
-  #- locate qwt.so
-  #- locate libvtk
+  - locate libfftw3
+  - locate libgsl
+  - locate libitk
+  - locate libqwt
+  - locate qwt.so
+  - locate libvtk
   #Build the calculator script engine library.
   - $QMAKE libCalcScripting.pro "CONFIG+=release" "CONFIG+=qtquickcompiler"
   - make
   #Build the program itself.
+  #NOTE: The "QMAKE_CFLAGS_ISYSTEM=-I" overwrites the default value (-isystem).  The -isystem flag
+  #      tells the compiler the headers inside the following directory are system headers, thus suppressing
+  #      excessive compiler warnings that are often issued with them.  However, the -isystem flag is known
+  #      to cause certain system libraries (e.g. <stdlib.h>) to be not found with versions of Qt later than
+  #      5.10 and with newer compilers.  It is safe to disable -isystem, but if you build this in QtCreator or
+  #      other IDE, the excessive warnings coming from ITK and VTK headers may result in a crash or irresponsiveness.
+  #      REFERENCES: https://github.com/OxfordSKA/OSKAR/issues/10
+  #                  https://github.com/machinekit/QtQuickVcp/issues/278 
   - $QMAKE GammaRay.pro "CONFIG+=release" "CONFIG+=qtquickcompiler" "QMAKE_CFLAGS_ISYSTEM=-I"
   - make
   #Show what was built.
-  #- tree ../GammaRay_release
+  - tree ../GammaRay_release
